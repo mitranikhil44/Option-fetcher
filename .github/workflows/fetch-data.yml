@@ -1,0 +1,18 @@
+name: Fetch Market Data
+
+on:
+  schedule:
+    # Runs every minute, Monday to Friday
+    - cron: '* * * * 1-5'
+  workflow_dispatch:  # allows manual trigger anytime
+
+jobs:
+  fetch-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Market Price API
+        run: |
+          curl -X GET https://stock-market-data-analysis.vercel.app/api/fetching_data/market_prices
+      - name: Trigger Option Chain API
+        run: |
+          curl -X GET https://stock-market-data-analysis.vercel.app/api/fetching_data/option_chains
