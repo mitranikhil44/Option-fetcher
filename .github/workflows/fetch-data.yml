@@ -2,9 +2,13 @@ name: Fetch Market Data
 
 on:
   schedule:
-    # Runs every minute, Monday to Friday
-    - cron: '* * * * 1-5'
-  workflow_dispatch:  # allows manual trigger anytime
+    # 03:46–03:59 UTC (9:16–9:29 IST), every minute
+    - cron: '46-59 3 * * 1-5'
+    # 04:00–09:59 UTC (10:00–15:29 IST), every minute
+    - cron: '* 4-9 * * 1-5'
+    # 10:00 UTC (15:30 IST), only once
+    - cron: '0 10 * * 1-5'
+  workflow_dispatch:
 
 jobs:
   fetch-data:
