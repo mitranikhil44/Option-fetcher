@@ -2,12 +2,10 @@ name: Fetch Market Data
 
 on:
   schedule:
-    # 03:46–03:59 UTC (09:16–09:29 IST), every minute
-    - cron: '46-59 3 * * 1-5'
-    # 04:00–09:59 UTC (10:00–15:29 IST), every minute
-    - cron: '* 4-9 * * 1-5'
-    # 10:00 UTC (15:30 IST), once
-    - cron: '0 10 * * 1-5'
+    # 09:01–09:10 IST → 03:31–03:40 UTC
+    - cron: '31-40 3 * * 1-5'
+    # 09:30–15:40 IST → 04:00–10:10 UTC
+    - cron: '0-10 4-10 * * 1-5'
   workflow_dispatch:
 
 jobs:
