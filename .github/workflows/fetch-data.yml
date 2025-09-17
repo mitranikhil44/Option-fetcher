@@ -3,7 +3,7 @@ name: Fetch Market Data
 on:
   schedule:
     # 09:00–15:30 IST → 03:30–10:00 UTC
-    - cron: '0-10,31-40 3-9 * * 1-5'
+    - cron: '0-10,31-40 4-9 * * 1-5'
   workflow_dispatch:
 
 jobs:
